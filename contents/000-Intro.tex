@@ -2,9 +2,27 @@
 \addcontentsline{toc}{chapter}{Introducción}
 
 % Introdución a posicionamiento 
-% Descripcion de la diversidad de tecnologias 
 
-% Introducion al problema
+Los sistemas de posicionamiento son un realidad común actualmente, estas tegnologías son capaces de optimizar trayectorias de los aviones, controlar drones, monitorizar procesos en cadenas de produción, encontrar rutas para desplazarnos en automóviles, o simplemente encontrar establecimientos cercanos con una rápida búsqueda en  terminales móviles. Es indudable el salto en innovación que produce el posicionamiento. Es por ello que desde que se empezo a posicionar los navíos, ya en los principios de la civilización, se intenta mejorar con la precisioń de esta técnica. Empezamos con una precision de varios kilometros, llegando a una precisioń de decenas de metros. \cite{Jang2019}
+
+% Introdución a posicionamiento en interiores
+
+En esta tesis estamos interesados en posicionar con alta precición dentro de interiores de edificios por lo que la precición que nos ofrece los sistemas globales de navegación por satelite (GNSS), es escaza para estos propositos. La atenuación de las señales satelitales producidas por los edificios colindantes y el propio edificio en cuestión es muy alta por lo que es necesario contar con otros tipos de mecanismos. 
+
+% 1- Problema actual: experimentación en posicionamiento es costoso
+
+Las metodologías utilizadas para el diseño, pruebas y validación de sistemas de localización son tan variadas como la diversidad de tecnologías y técnicas usadas para su implementación. Sin embargo, existe una serie de pasos comunes en el diseño de sistemas de localización. Estos son: la obtención de la planimetría, la generación de trayectorias, la toma de medidas de señales en dicha trayectoria, el procesamiento de las señales y por último la evaluación de su rendimiento por comparación. Las medidas tomadas deberán ser variadas, ya que una colección en pocas casuísticas puede agregar sesgos no deseados a nuestros sistemas. En consecuencia es necesario realizar pruebas en varios entornos, tomando medidas en distintas trayectorias. Sin embargo, la obtención de medidas experimentales de este tipo son costosas en tiempo y recursos.
+
+% 2- Simuladores son útiles para esta tarea
+% 3- No existen demasiados actualmente y tienen algunas limitaciones: centrados en RF, no cubren todos los elementos que intervienen en un experimento
+
+En consecuencia las herramientas de simulación son una alternativa muy interesante. Buenos modelos de simulación, tanto en la trayectoria, como en la generación de señales pueden generar un amplio banco de pruebas. Sin embargo, por ahora no existe un marco estándar donde desarrollar algoritmos de diversa índole. Los pocos simuladores que existen suelen estar enfocados en alguna tecnología en concreto, lo que no permite la comparación con otros tipos de sistemas de localización.
+
+% 4 - - Objetivo del paper: presentar Navindoor. Introducir las principales características y diferencias con el estado del arte: framework/API Matlab, modular, incluye GUI 
+ 
+En este artículo se presenta la plataforma de simulación, Navindoor. Esta es una biblioteca de código abierto para MATLAB, donde el usuario puede construir la planimetría, generar trayectorias, simular señales, desarrollar algoritmos y compararlos con otros. Navindoor contiene una interfaz gráfica (GUI), que nos facilita la interacción con la plataforma. Además, contiene una interfaz de línea de comando (CLI), que facilita automatizar simulaciones voluminosas y la integración con otras herramientas. A diferencia de otras plataformas de simulación de sistemas de localización, en donde los modelos de simulación están anclados al diseño, este se ha desarrollado de forma modular. Debido a esto, la implementación de nuevos modelos y algoritmos es más versátil. Dentro de Navindoor podemos utilizar funciones de MATLAB como parámetros de entrada. De esta manera desarrollar un modelo de simulación o algoritmo de localización se simplifica en crear una función de MATLAB, con una interfaz de entrada/salida específica.
+
+% Introducion al problema 
     % - Modelos dependientes del entorno
     % - Dificil Comparación entre métodos 
     % - 

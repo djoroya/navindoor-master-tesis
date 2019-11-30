@@ -1,7 +1,7 @@
-\documentclass[11pt]{book}              % Book class in 11 points
-\parindent0pt  \parskip10pt             % make block paragraphs
-\raggedright                            % do not right justify
-\input{settings.tex}
+\documentclass[12pt]{book}
+                            % do not right justify
+\input{settings}
+% \bibliography{biblio}
 
 \title{Navindoor: Software para la simulación, desarrollo y validación de sistemas de localización}    % Supply information
 \author{Deyviss Jesús Oroya Villalta}              %   for the title page.
@@ -12,10 +12,13 @@
 \frontmatter                            % only in book class (roman page #s)
 \maketitle                              % Print title page.
 \tableofcontents                        % Print table of contents
-\mainmatter                             % only in book class (arabic page #s)
-\input{contents/000-Intro.tex}
-\input{contents/010-IntroIPS.tex}
-\input{contents/020-Arquitectura-de-Sofware.tex}
-\input{contents/030-Ejemplos.tex}
-\input{contents/040-Conclusiones.tex}
-\end{document}                          % The required last line
+\mainmatter                              % only in book class (arabic page #s)
+% \input{contents/000-Intro.tex}
+% \input{contents/010-IntroIPS.tex}
+% \input{contents/020-Arquitectura-de-Sofware.tex}
+\input{contents/030-Ejemplos}
+%\input{contents/040-Conclusiones.tex}
+
+% \addcontentsline{toc}{chapter}{\textbf{Biblografía}}
+% \printbibliography
+\end{document}                          % The required last line 

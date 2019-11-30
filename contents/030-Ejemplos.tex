@@ -1,1 +1,67 @@
 \chapter{Implementación de modelos de simulación y algoritmos de localización}
+
+
+\section{Filtros de Kalman}
+\subsection{Modelo Dinámico de un peatón}
+
+El movimento de un peatón puede modelizarse como un movimento rectilineo a velocidad constante en variaciones de tiempos muy pequeños. 
+
+\begin{gather}\label{MRU}
+    \frac{d}{dt}
+    \begin{pmatrix}
+        x \\ y \\ z \\
+        u \\ v \\ w 
+    \end{pmatrix} = 
+    \begin{pmatrix}
+        u \\ v \\ w \\
+        0 \\ 0 \\ 0       
+    \end{pmatrix}
+\end{gather}
+
+Podemos discretizar la ecuación (\ref{MRU}) mediante el método de euler. Dado que resolveremos la ecuación en intervalos temporales muy pequeños con respecto a la variación de la velocidad de un peatón no necesitamos más precisión. 
+
+\begin{gather} 
+    \begin{pmatrix} \label{MRUDis}
+        x \\ y \\ z \\
+        u \\ v \\ w 
+    \end{pmatrix}_{k+1} =
+    \begin{pmatrix}
+        1 & 0 & 0 & dt & 0  & 0 \\
+        0 & 1 & 0 & 0  & dt & 0 \\
+        0 & 0 & 1 & 0  & 0  & dt \\
+        0 & 0 & 0 & 1  & 0  & 0 \\
+        0 & 0 & 0 & 0  & 1  & 0 \\
+        0 & 0 & 0 & 0  & 0  & 1 \\
+    \end{pmatrix}
+    \begin{pmatrix}
+        x \\ y \\ z \\
+        u \\ v \\ w     
+    \end{pmatrix}_k
+\end{gather}
+
+El paso temporal, $dt$ debido a la discretización será igual que la latencia del algoritmo de predicción.
+
+
+
+
+\subsection{Modelo de medidas de balizas} 
+
+Supongamos que tenemos $n$ balizas. Además las posiciones de estas balizas estan contenidas en una  matriz $M_b \in \mathcal{M}_{3 \times n}(\mathbb{R})$. Podemos definir una función, $h(M_b)$ dada la matriz, $M_b$. Sea una función $h(M_b): \R^3 \rightarrow    \R^{n \times m}$ tal que recibe un punto del espacio, $r \in \R^3$ y devuelve un vector de medidas, $z \in \R^{n \times m}$.
+
+\begin{gather}
+    \begin{array}{llll}
+        h(M_b):  & r     & \rightarrow & M_m \\
+            & \R^3  & \rightarrow & \mathcal{M}_{n \times m}(\R)    
+    \end{array}
+\end{gather}
+
+
+
+
+
+
+
+
+
+\section{Fusión de señales para la estimación de la trayectoria mediante filtros de Kalman}
+
